@@ -16,6 +16,15 @@ public class Direccion {
 	private long idprovincia;
 	private long idpersona;
 
+
+	public Direccion(String calle, String codPostal, String localidad) {
+		// TODO Auto-generated constructor stub
+		this.direccion = calle;
+		this.codpostal = codPostal;
+		this.localidad = codPostal;
+		
+	}
+	
 	public long getIddireccion() {
 		return iddireccion;
 	}
@@ -63,5 +72,6 @@ public class Direccion {
 	public void setIdpersona(long idpersona) {
 		this.idpersona = idpersona;
 	}
+
 
 }

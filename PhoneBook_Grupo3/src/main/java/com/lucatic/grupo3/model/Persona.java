@@ -19,6 +19,13 @@ public class Persona {
 	private String dni;
 	private Date fechanacimiento;
 	
+	public Persona(int id, String nombre, String apellido) {
+		// TODO Auto-generated constructor stub
+		this.idpersona = id;
+		this.nombre = nombre;
+		this.apellido1 = apellido;
+	}
+
 
 	public long getIdpersona() {
 		return idpersona;
@@ -67,6 +74,7 @@ public class Persona {
 	public void setFechanacimiento(Date fechanacimiento) {
 		this.fechanacimiento = fechanacimiento;
 	}
+
 
 
 }

@@ -18,17 +18,17 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.lucatic.grupo3.model.Contacto;
-import com.lucatic.grupo3.repository.ContactoRepository;
+import com.lucatic.grupo3.services.ContactoService;
 
 @RestController
 @RequestMapping("/Contactos")
 public class ContactoController {
 
-	private final ContactoRepository repository;
+	private final ContactoService service;
 
 	@Autowired
-	public ContactoController(ContactoRepository repository) {
-		this.repository = repository;
+	public ContactoController(ContactoService service) {
+		this.service = service;
 	}
 	
 	@SuppressWarnings("serial")
@@ -46,7 +46,7 @@ public class ContactoController {
 	@GetMapping
 	//@RequestMapping(method = RequestMethod.GET)
 	Collection<Contacto> readContactos(){
-		return this.repository.findAll();
+		return this.service.findAll();
 	}
 	
 	
@@ -62,14 +62,14 @@ public class ContactoController {
 
 	@GetMapping("/{id}")
 	Contacto readContacto(@PathVariable Long id) {
-		return this.repository.findById(id)
+		return this.service.findById(id)
 				.orElseThrow(ContactoNotFoundException::new);
 	}
 	
 	// @RequestBody Contacto Contacto significa que un Contactoo será el cuerpo de la respuesta
 	@PostMapping
 	ResponseEntity<?> addContacto(@RequestBody Contacto Contacto){
-		Contacto result = this.repository.save(Contacto);
+		Contacto result = this.service.save(Contacto);
 		URI location = ServletUriComponentsBuilder
 				.fromCurrentRequest()
 				.path("/{id}")
@@ -84,18 +84,18 @@ public class ContactoController {
 		 * The result is the URI of the new resource.
 		 */
 
-		return ResponseEntity.created(location).build();		
+		return ResponseEntity.created(location).build();
 	}
 	
 	@PutMapping
 	Contacto updateContacto(@RequestBody Contacto Contacto) {
-		return this.repository.update(Contacto)
+		return this.service.update(Contacto)
 				.orElseThrow(ContactoNotFoundException::new);
 	}
 	
 	@DeleteMapping("/{id}")
 	void deleteContacto(@PathVariable Long id) {
-		this.repository.delete(id)
+		this.service.delete(id)
 			.orElseThrow(ContactoNotFoundException::new);
 	}	
 }
