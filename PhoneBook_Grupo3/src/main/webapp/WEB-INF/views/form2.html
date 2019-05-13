@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- Static content -->
+<link rel="stylesheet" href="/resources/css/estilos.css">
+
+<title>Agenda - Form2</title>
+</head>
+<body>
+	<div id="contenedor">
+		<h2>
+			Agenda <br /> (Anotac + 
+			Model + Thymeleaf + SB)
+		</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Provincia</th>
+					<th>Id</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					
+					<td><span th:text="${person.name}" /></td>
+					<td><span th:text="${province.name}" /></td>
+					<td><span th:text="${contact.id}" /></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

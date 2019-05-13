@@ -4,7 +4,7 @@ import java.util.List;
 
 public class ContactList {
 
-	private List<Contact> contactList;
+	private List<Contacto> contactList;
 
 
 	//Lo ponemos protected para mejorar el control de JAXB
@@ -13,17 +13,17 @@ public class ContactList {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ContactList(List<Contact> contactList) {
+	public ContactList(List<Contacto> contactList) {
 		super();
 		this.contactList = contactList;
 	}
 
 	 
-	public List<Contact> getContactList() {
+	public List<Contacto> getContactList() {
 		return contactList;
 	}
 
-	public void setContactList(List<Contact> contactList) {
+	public void setContactList(List<Contacto> contactList) {
 		this.contactList = contactList;
 	}
 	

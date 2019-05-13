@@ -6,26 +6,27 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.lucatic.grupo3.model.Contact;
-import com.lucatic.grupo3.repository.ContactRepository;
+import com.lucatic.grupo3.model.Contacto;
+
+import com.lucatic.grupo3.repository.ContactoRepository;
 
 @Repository
 public class ContactService {
 
 	@Autowired
-	private ContactRepository data;
+	private ContactoRepository data;
 	
-	public List<Contact> getContacts() {
-		return data.createContactList();
+	public List<Contacto> getContacts() {
+		return data.createContactoList();
 	}
 	
 	
 	
-	public Contact getContactById(int id) {
-		List<Contact> contactList = new ArrayList<Contact>();
-		contactList = data.createContactList();
+	public Contacto getContactById(int id) {
+		List<Contacto> contactList = new ArrayList<Contacto>();
+		contactList = data.createContactoList();
 
-		for (Contact contact : contactList) {
+		for (Contacto contact : contactList) {
 			if (contact.getId() == id)
 				return contact;
 		}

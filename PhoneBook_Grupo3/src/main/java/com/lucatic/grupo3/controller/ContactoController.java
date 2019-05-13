@@ -17,42 +17,42 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.lucatic.grupo3.model.Contact;
-import com.lucatic.grupo3.repository.ContactRepository;
+import com.lucatic.grupo3.model.Contacto;
+import com.lucatic.grupo3.repository.ContactoRepository;
 
 @RestController
-@RequestMapping("/contacts")
-public class ContactController {
+@RequestMapping("/Contactos")
+public class ContactoController {
 
-	private final ContactRepository repository;
+	private final ContactoRepository repository;
 
 	@Autowired
-	public ContactController(ContactRepository repository) {
+	public ContactoController(ContactoRepository repository) {
 		this.repository = repository;
 	}
 	
 	@SuppressWarnings("serial")
 	@ResponseStatus(HttpStatus.NOT_FOUND)
-	class contactNotFoundException extends RuntimeException {
+	class ContactoNotFoundException extends RuntimeException {
 
-		public contactNotFoundException() {
-			super("contact does not exist");
+		public ContactoNotFoundException() {
+			super("Contacto does not exist");
 		}
 	}
 	
 	//@GetMapping is a specialized RequestMapping. 
-	//It specifies that HTTP GET requests to /contacts 
-	//are mapped to the readcontacts() method.
+	//It specifies that HTTP GET requests to /Contactos 
+	//are mapped to the readContactos() method.
 	@GetMapping
 	//@RequestMapping(method = RequestMethod.GET)
-	Collection<Contact> readcontacts(){
+	Collection<Contacto> readContactos(){
 		return this.repository.findAll();
 	}
 	
 	
 	/*
 	 * this orElseThrow method at the end of the findById call and what does it do? 
-	 * It is part of the java.util.Optional API. It returns the wrapped contact object
+	 * It is part of the java.util.Optional API. It returns the wrapped Contacto object
 	 *  if present, otherwise it throws the exception provided by the exception supplier. 
 	 *  However, we can substitute the supplier with a method reference to our custom 
 	 *  exception class’ constructor. When this exception is thrown, a “404 Not Found” 
@@ -61,15 +61,15 @@ public class ContactController {
 	 */
 
 	@GetMapping("/{id}")
-	Contact readcontact(@PathVariable Long id) {
+	Contacto readContacto(@PathVariable Long id) {
 		return this.repository.findById(id)
-				.orElseThrow(contactNotFoundException::new);
+				.orElseThrow(ContactoNotFoundException::new);
 	}
 	
-	// @RequestBody contact contact significa que un contacto será el cuerpo de la respuesta
+	// @RequestBody Contacto Contacto significa que un Contactoo será el cuerpo de la respuesta
 	@PostMapping
-	ResponseEntity<?> addcontact(@RequestBody Contact contact){
-		Contact result = this.repository.save(contact);
+	ResponseEntity<?> addContacto(@RequestBody Contacto Contacto){
+		Contacto result = this.repository.save(Contacto);
 		URI location = ServletUriComponentsBuilder
 				.fromCurrentRequest()
 				.path("/{id}")
@@ -80,7 +80,7 @@ public class ContactController {
 		 * Inside the method body, we build a java.net.URI object using ServletUriComponentsBuilder. 
 		 * It builds the object by capturing the URI of the current request and appending the 
 		 * placeholder /{id} to create a template. buildAndExpand(result.getId()) 
-		 * inserts the id of the newly created contact into the template. 
+		 * inserts the id of the newly created Contacto into the template. 
 		 * The result is the URI of the new resource.
 		 */
 
@@ -88,14 +88,14 @@ public class ContactController {
 	}
 	
 	@PutMapping
-	Contact updatecontact(@RequestBody Contact contact) {
-		return this.repository.update(contact)
-				.orElseThrow(contactNotFoundException::new);
+	Contacto updateContacto(@RequestBody Contacto Contacto) {
+		return this.repository.update(Contacto)
+				.orElseThrow(ContactoNotFoundException::new);
 	}
 	
 	@DeleteMapping("/{id}")
-	void deletecontact(@PathVariable Long id) {
+	void deleteContacto(@PathVariable Long id) {
 		this.repository.delete(id)
-			.orElseThrow(contactNotFoundException::new);
+			.orElseThrow(ContactoNotFoundException::new);
 	}	
 }
