@@ -31,11 +31,11 @@ public class PhoneBookGrupo3ApplicationTests {
     @Test
     public Optional<Contacto> testDropContact() throws SQLException {
         Persona p = new Persona(101, "alvaro", "gonzalez");
-        Direccion a = new Direccion("calle alvaro", 10, 2, "4", 28001, "Madrid");
-        Telefono ph = new Telefono(68686868);
-        Provincia pr = new Provincia(24001, "Leon", "LE", "Espana");
+        Direccion a = new Direccion("calle alvaro", "28001", "Madrid");
+        Telefono ph = new Telefono("68686868");
+        Provincia pr = new Provincia("Leon");
         Contacto c = new Contacto(151L, p, a, ph, pr);
-        ContactRepository cr = new ContactRepository();
+        ContactoRepository cr = new ContactoRepository();
         cr.save(c);
         cr.delete(c.getId());
         return Optional.ofNullable(c);
@@ -44,12 +44,12 @@ public class PhoneBookGrupo3ApplicationTests {
 
     @Test
     public Optional<Contacto> testUpdateContact() throws SQLException {
-        Persona p = new Persona(151L, "alvaro", "gonzalez");
-        Direccion a = new Direccion("calle alvaro", 10, 2, "4", 28001, "Madrid");
-        Telefono ph = new Telefono(68686868);
-        Provincia pr = new Provincia(24001L, "Leon", "LE", "Espana");
+        Persona p = new Persona(151, "alvaro", "gonzalez");
+        Direccion a = new Direccion("calle alvaro"," 28001", "Madrid");
+        Telefono ph = new Telefono("68686868");
+        Provincia pr = new Provincia("Leon");
         Contacto c = new Contacto(151L, p, a, ph, pr);
-        ContactRepository cr = new ContactRepository();
+        ContactoRepository cr = new ContactoRepository();
         cr.update(c);
         return Optional.ofNullable(c);
 

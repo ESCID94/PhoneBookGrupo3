@@ -11,6 +11,12 @@ public class Provincia {
 	@Id
 	private long idprovincia;
 	private String provincia;
+	
+	public Provincia(String provincia) {
+		// TODO Auto-generated constructor stub
+		this.provincia = provincia;
+	}
+
 
 	public long getIdprovincia() {
 		return idprovincia;
@@ -27,5 +33,6 @@ public class Provincia {
 	public void setProvincia(String provincia) {
 		this.provincia = provincia;
 	}
+
 
 }

@@ -13,7 +13,13 @@ public class Telefono {
 	private String telefono;
 	private long idpersona;
 
-	public long getIdtelefono() {
+	public Telefono(String telefono) {
+		// TODO Auto-generated constructor stub
+		this.telefono = telefono;
+		
+	}
+	
+	public long getIdtelefono(int i) {
 		return idtelefono;
 	}
 
@@ -36,5 +42,7 @@ public class Telefono {
 	public void setIdpersona(long idpersona) {
 		this.idpersona = idpersona;
 	}
+
+
 
 }
