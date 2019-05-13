@@ -1,6 +1,5 @@
 package com.lucatic.grupo3.model;
 
-import javax.persistence.Entity;
 
 import lombok.Data;
 

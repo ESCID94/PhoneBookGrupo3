@@ -1,18 +1,13 @@
 package com.lucatic.grupo3.services;
 
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import com.lucatic.grupo3.model.Contacto;
-
 import com.lucatic.grupo3.repository.ContactoRepository;
 
 @Repository
