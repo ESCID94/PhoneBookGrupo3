@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.lucatic.grupo3.model.Contact;
+import com.lucatic.grupo3.model.Contacto;
 import com.lucatic.grupo3.repository.ContactRepository;
 
 @RestController
@@ -45,7 +45,7 @@ public class ContactController {
 	//are mapped to the readcontacts() method.
 	@GetMapping
 	//@RequestMapping(method = RequestMethod.GET)
-	Collection<Contact> readcontacts(){
+	Collection<Contacto> readcontacts(){
 		return this.repository.findAll();
 	}
 	
@@ -61,15 +61,15 @@ public class ContactController {
 	 */
 
 	@GetMapping("/{id}")
-	Contact readcontact(@PathVariable Long id) {
+	Contacto readcontact(@PathVariable Long id) {
 		return this.repository.findById(id)
 				.orElseThrow(contactNotFoundException::new);
 	}
 	
 	// @RequestBody contact contact significa que un contacto será el cuerpo de la respuesta
 	@PostMapping
-	ResponseEntity<?> addcontact(@RequestBody Contact contact){
-		Contact result = this.repository.save(contact);
+	ResponseEntity<?> addcontact(@RequestBody Contacto contact){
+		Contacto result = this.repository.save(contact);
 		URI location = ServletUriComponentsBuilder
 				.fromCurrentRequest()
 				.path("/{id}")
@@ -88,7 +88,7 @@ public class ContactController {
 	}
 	
 	@PutMapping
-	Contact updatecontact(@RequestBody Contact contact) {
+	Contacto updatecontact(@RequestBody Contacto contact) {
 		return this.repository.update(contact)
 				.orElseThrow(contactNotFoundException::new);
 	}

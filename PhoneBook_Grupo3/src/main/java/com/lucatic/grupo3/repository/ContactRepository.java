@@ -17,12 +17,12 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
-import com.lucatic.grupo3.model.Contact;
+import com.lucatic.grupo3.model.Contacto;
 
 @Repository
 public class ContactRepository {
 
-	Map<Long, Contact> contacts = new HashMap<>();
+	Map<Long, Contacto> contacts = new HashMap<>();
 
 	/*
 	 * Typically, the database will assign the unique id (or primary key) when
@@ -33,7 +33,7 @@ public class ContactRepository {
 	long currentId = 100;
 
 	// Return all contacts
-	public Collection<Contact> findAll() {
+	public Collection<Contacto> findAll() {
 		return contacts.values();
 	}
 
@@ -44,8 +44,8 @@ public class ContactRepository {
 	 * implementation decision and has nothing to do with REST concepts or
 	 * constraints.
 	 */
-	public Optional<Contact> findById(Long id) {
-		Contact contact = null;
+	public Optional<Contacto> findById(Long id) {
+		Contacto contact = null;
 		
 
 		if (contacts.containsKey(id)) {
@@ -55,15 +55,15 @@ public class ContactRepository {
 	}
 
 	// Save a new contact
-	public Contact save(Contact contact) {
+	public Contacto save(Contacto contact) {
 		contact.setId(++currentId);
 		contacts.put(contact.getId(), contact);
 		return contact;
 	}
 
 	// Update the contact with this id
-	public Optional<Contact> update(Contact contact) {
-		Contact currentContact = contacts.get(contact.getId());
+	public Optional<Contacto> update(Contacto contact) {
+		Contacto currentContact = contacts.get(contact.getId());
 
 		if (currentContact != null) {
 			contacts.put(contact.getId(), contact);
@@ -73,8 +73,8 @@ public class ContactRepository {
 	}
 
 	// Delete contact with this id
-	public Optional<Contact> delete(Long id) {
-		Contact currentContact = contacts.get(id);
+	public Optional<Contacto> delete(Long id) {
+		Contacto currentContact = contacts.get(id);
 
 		if (currentContact != null) {
 			contacts.remove(id);
@@ -82,7 +82,7 @@ public class ContactRepository {
 		return Optional.ofNullable(currentContact);
 	}
 
-	public List<Contact> createContactList() {
+	public List<Contacto> createContactList() {
 		// TODO Auto-generated method stub
 		return null;
 	}
