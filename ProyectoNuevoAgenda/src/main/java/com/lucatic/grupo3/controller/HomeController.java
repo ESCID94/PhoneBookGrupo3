@@ -50,7 +50,7 @@ public class HomeController {
 	public ModelAndView editUser(HttpServletRequest request) {
 		logger.info("--en EDIT");
 		int userId = Integer.parseInt(request.getParameter("id"));
-		User user = iuserService.get(userId);
+		User user = iuserService.getEntity(userId);
 		ModelAndView model = new ModelAndView("UserForm");
 		model.addObject("user" , user);
 		return model;

@@ -21,8 +21,8 @@ public class UserService implements IService<Object> {
 	}
 
 	@Override
-	public User get(int id) {
-		return data.get(id);
+	public User getEntity(int id) {
+		return data.getEntity(id);
 	}
 
 	@Override

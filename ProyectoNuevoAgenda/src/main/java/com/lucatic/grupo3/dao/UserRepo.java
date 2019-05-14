@@ -18,7 +18,7 @@ public class UserRepo implements IRepository<Object> {
 	public UserRepo() {}
 
 	@Override
-	public User get(int id) {
+	public User getEntity(int id) {
 		return entityManager.find(User.class, id) ;
 	}
 
@@ -31,24 +31,20 @@ public class UserRepo implements IRepository<Object> {
 	@Override
 	@Transactional
 	public void delete(int id) {
-		entityManager.remove(getUserById(id));
+		entityManager.remove(getEntity(id));
 		
 	}
 
 	@Override
 	public void update(Object t) {
 		// TODO Auto-generated method stub
-		 User usuario = getUserById(((User) t).getId());
+		 User usuario = getEntity(((User) t).getId());
 			
 			usuario.setUsername(((User) t).getUsername());
 			usuario.setEmail(((User) t).getEmail());
 			usuario.setPassword(usuario.getPassword());
 			
 			entityManager.flush();
-	}
-
-	public User getUserById(int id) {
-		return entityManager.find(User.class, id);
 	}
 	
 	@SuppressWarnings("unchecked")

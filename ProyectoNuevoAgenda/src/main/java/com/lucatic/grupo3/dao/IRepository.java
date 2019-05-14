@@ -4,7 +4,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IRepository<T> {
 		
-	public T get(int id);
+	public T getEntity(int id);
 	
 	public void update(T t);
 	public void add(T t);
