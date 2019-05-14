@@ -12,25 +12,20 @@ public class Provincia {
 	private long idprovincia;
 	private String provincia;
 	
-	public Provincia(String provincia) {
+
+	public Provincia() {
+		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	public Provincia(long idprovincia, String provincia) {
+		super();
+		this.idprovincia = idprovincia;
 		this.provincia = provincia;
 	}
-
-
-	public long getIdprovincia() {
-		return idprovincia;
-	}
-
-	public void setIdprovincia(long idprovincia) {
-		this.idprovincia = idprovincia;
-	}
-
-	public String getProvincia() {
-		return provincia;
-	}
-
-	public void setProvincia(String provincia) {
+	
+	public Provincia(String provincia) {
+		// TODO Auto-generated constructor stub
 		this.provincia = provincia;
 	}
 

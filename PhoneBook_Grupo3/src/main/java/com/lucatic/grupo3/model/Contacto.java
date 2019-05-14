@@ -11,7 +11,12 @@ public class Contacto {
 	private Direccion direccion;
 	private Telefono telefono;
 	private Provincia provincia;
-	
+
+	public Contacto() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Contacto(Long id, Persona persona, Direccion direccion, Telefono telefono, Provincia provincia) {
 		super();
 		this.id = id;
@@ -21,6 +26,7 @@ public class Contacto {
 		this.provincia = provincia;
 	}
 
+	
 	
 
 	
