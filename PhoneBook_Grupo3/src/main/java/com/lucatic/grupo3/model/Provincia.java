@@ -6,7 +6,6 @@ import javax.persistence.Id;
 import lombok.Data;
 
 @Entity
-@Data
 public class Provincia {
 	@Id
 	private long idprovincia;
@@ -17,6 +16,8 @@ public class Provincia {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 
 	public Provincia(long idprovincia, String provincia) {
 		super();
@@ -29,5 +30,24 @@ public class Provincia {
 		this.provincia = provincia;
 	}
 
+	public long getIdprovincia() {
+		return idprovincia;
+	}
 
+	public void setIdprovincia(long idprovincia) {
+		this.idprovincia = idprovincia;
+	}
+
+	public String getProvincia() {
+		return provincia;
+	}
+
+	public void setProvincia(String provincia) {
+		this.provincia = provincia;
+	}
+
+	@Override
+	public String toString() {
+		return "Provincia [idprovincia=" + idprovincia + ", provincia=" + provincia + "]";
+	}
 }
