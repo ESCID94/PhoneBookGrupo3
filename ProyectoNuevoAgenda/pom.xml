@@ -8,11 +8,11 @@
 		<version>1.5.19.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example.demo</groupId>
-	<artifactId>EjercicioEjemploProfe11</artifactId>
+	<groupId>com.lucatic.grupo3</groupId>
+	<artifactId>ProyectoNuevoAgenda</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>EjercicioEjemploProfe11</name>
+	<name>ProyectoNuevoAgenda</name>
 	<description>MVC por Hibernate SpringBoot</description>
 
 	<properties>
