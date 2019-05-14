@@ -6,7 +6,6 @@ import javax.persistence.Id;
 import lombok.Data;
 
 @Entity
-@Data
 public class Direccion {
 	@Id
 	private long iddireccion;
@@ -38,6 +37,60 @@ public class Direccion {
 		this.codpostal = codPostal;
 		this.localidad = codPostal;
 		
+	}
+
+	public long getIddireccion() {
+		return iddireccion;
+	}
+
+	public void setIddireccion(long iddireccion) {
+		this.iddireccion = iddireccion;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public String getCodpostal() {
+		return codpostal;
+	}
+
+	public void setCodpostal(String codpostal) {
+		this.codpostal = codpostal;
+	}
+
+	public String getLocalidad() {
+		return localidad;
+	}
+
+	public void setLocalidad(String localidad) {
+		this.localidad = localidad;
+	}
+
+	public long getIdprovincia() {
+		return idprovincia;
+	}
+
+	public void setIdprovincia(long idprovincia) {
+		this.idprovincia = idprovincia;
+	}
+
+	public long getIdpersona() {
+		return idpersona;
+	}
+
+	public void setIdpersona(long idpersona) {
+		this.idpersona = idpersona;
+	}
+
+	@Override
+	public String toString() {
+		return "Direccion [iddireccion=" + iddireccion + ", direccion=" + direccion + ", codpostal=" + codpostal
+				+ ", localidad=" + localidad + ", idprovincia=" + idprovincia + ", idpersona=" + idpersona + "]";
 	}
 
 
