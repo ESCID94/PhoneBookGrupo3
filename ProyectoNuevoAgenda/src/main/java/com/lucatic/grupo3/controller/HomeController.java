@@ -56,7 +56,7 @@ public class HomeController {
 		return model;
 	}
 	
-	@RequestMapping(value="/delete", method = RequestMethod.POST)
+	@RequestMapping(value="/delete", method = RequestMethod.GET)
 	public ModelAndView deleteUser(HttpServletRequest request) {
 		logger.info("-- en Delete");
 		int userId = Integer.parseInt(request.getParameter("id"));
@@ -64,10 +64,10 @@ public class HomeController {
 		return new ModelAndView("redirect:/");
 	}
 	
-	 @RequestMapping(value="save" , method = RequestMethod.POST)
+	 @RequestMapping(value="/save" , method = RequestMethod.POST)
 	 public ModelAndView saveUser(@ModelAttribute User user) {
 		 logger.info("-- en SAVE");
 		 iuserService.add(user);
-		 return new ModelAndView("redirect/");
+		 return new ModelAndView("redirect:/");
 	 }
 }

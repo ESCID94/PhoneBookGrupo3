@@ -35,8 +35,8 @@
 					<td>${user.username}</td>
 					<td><em>${user.password}</em></td>
 					<td>${user.email}</td>
-					<td><a href="edit?id=${user.id}">Modificar</a> | <a
-						href="delete?id=${user.id}">Eliminar</a></td>
+					<td><a href="edit?id=${user.id}">Modificar</a>
+						<a href="delete?id=${user.id}">Eliminar</a></td>
 				</tr>
 			</c:forEach>
 		</table>
