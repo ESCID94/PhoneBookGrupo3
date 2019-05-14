@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lucatic.grupo3.model.User;
-import com.lucatic.grupo3.services.IUserService;
+import com.lucatic.grupo3.services.UserService;
 
 /**
  * 
@@ -26,7 +26,7 @@ import com.lucatic.grupo3.services.IUserService;
 public class HomeController {
 	
 	@Autowired
-	private IUserService iuserService;
+	private UserService iuserService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
