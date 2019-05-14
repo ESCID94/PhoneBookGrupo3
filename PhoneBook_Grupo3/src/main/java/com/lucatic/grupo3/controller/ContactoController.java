@@ -21,9 +21,10 @@ import com.lucatic.grupo3.model.Contacto;
 import com.lucatic.grupo3.services.ContactoService;
 
 @RestController
-@RequestMapping("/Contactos")
+@RequestMapping("/contactos")
 public class ContactoController {
-
+	
+	@Autowired
 	private final ContactoService service;
 
 	@Autowired

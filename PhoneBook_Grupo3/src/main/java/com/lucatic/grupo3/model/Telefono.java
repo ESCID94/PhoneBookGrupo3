@@ -13,36 +13,22 @@ public class Telefono {
 	private String telefono;
 	private long idpersona;
 
+	public Telefono() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Telefono(String telefono) {
 		// TODO Auto-generated constructor stub
 		this.telefono = telefono;
 		
 	}
-	
-	public long getIdtelefono(int i) {
-		return idtelefono;
-	}
 
-	public void setIdtelefono(long idtelefono) {
+	public Telefono(long idtelefono, String telefono, long idpersona) {
+		super();
 		this.idtelefono = idtelefono;
-	}
-
-	public String getTelefono() {
-		return telefono;
-	}
-
-	public void setTelefono(String telefono) {
 		this.telefono = telefono;
-	}
-
-	public long getIdpersona() {
-		return idpersona;
-	}
-
-	public void setIdpersona(long idpersona) {
 		this.idpersona = idpersona;
-	}
-
-
-
+	}	
+	
 }

@@ -22,6 +22,11 @@
 	</properties>
 
 	<dependencies>
+		
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
 		<!-- Spring Fox 2 -->
 		<dependency>
 			<groupId>io.springfox</groupId>

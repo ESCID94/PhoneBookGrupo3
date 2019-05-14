@@ -2,6 +2,9 @@ package com.lucatic.grupo3.model;
 
 import java.util.List;
 
+import lombok.Data;
+
+@Data
 public class ContactList {
 
 	private List<Contacto> contactList;

@@ -1,15 +1,19 @@
 package com.lucatic.grupo3;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Optional;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.jca.cci.core.support.CciDaoSupport;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.lucatic.grupo3.model.Direccion;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import com.lucatic.grupo3.model.Contacto;
 import com.lucatic.grupo3.model.Persona;
 import com.lucatic.grupo3.model.Telefono;
@@ -26,8 +30,28 @@ public class PhoneBookGrupo3ApplicationTests {
 
     @Test
     public void contextLoads() {
+    	
     }
-
+    @Test
+    public void debeDevolverJSONEnUnObjeto() {
+    	ObjectMapper mapper = new ObjectMapper();
+    	Persona persona = new Persona();
+		try {
+			persona = mapper.readValue("file:resources/persona.json", Persona.class);
+		} catch (JsonParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+  
+    	System.out.println(persona.getNombre());
+      
+    }
     @Test
     public Optional<Contacto> testDropContact() throws SQLException {
         Persona p = new Persona(101, "alvaro", "gonzalez");
