@@ -1,16 +1,14 @@
-package com.example.demo.dao;
+package com.example.demo.services;
 
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Persona;
-
-
-@Repository
-public interface IPersonaDAO {
+@Service
+public interface IPersonaServicios {
 	public List<Persona> list();
-		
+	
 	public Persona get(int id);
 	public void add(Persona persona);
 	public void update(Persona persona);	

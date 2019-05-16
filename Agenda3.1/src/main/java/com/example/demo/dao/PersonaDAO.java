@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
@@ -27,6 +28,46 @@ public class PersonaDAO implements IPersonaDAO {
 		System.out.println(persona);
 		entityManager.merge(persona);
 		System.out.println("conseguido");
+	}
+
+	@Override
+	public Persona get(int id) {
+		// TODO Auto-generated method stub
+		System.out.println(entityManager.find(Persona.class,id).toString());
+		return entityManager.find(Persona.class, id);
+		
+	}
+
+	@Override
+	@Transactional
+	public void update(Persona persona) {
+		// TODO Auto-generated method stub
+		Persona person = get(persona.getIdpersona());
+		
+		person.setNombre(persona.getNombre());
+		person.setApellido1(persona.getApellido1());
+		person.setApellido2(persona.getApellido2());
+		person.setDireccions((persona.getDireccions()));
+		person.setDni(persona.getDni());
+		person.setFechanacimiento(persona.getFechanacimiento());
+		person.setTelefonos(persona.getTelefonos());
+	
+		entityManager.flush();
+	}
+
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String personaDetails(int id) {
+		// TODO Auto-generated method stub
+		
+		
+		
+		return null;
 	}
 
 }
