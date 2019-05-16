@@ -1,54 +1,53 @@
 package com.example.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import java.io.Serializable;
+import javax.persistence.*;
 
+
+/**
+ * The persistent class for the telefono database table.
+ * 
+ */
 @Entity
-public class Telefono {
+@NamedQuery(name="Telefono.findAll", query="SELECT t FROM Telefono t")
+public class Telefono implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	private long idtelefono;
+	private int idtelefono;
+
 	private String telefono;
-	private long idpersona;
+
+	//bi-directional many-to-one association to Persona
+	@ManyToOne
+	@JoinColumn(name="idpersona")
+	private Persona persona;
 
 	public Telefono() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	public Telefono(long idtelefono, String telefono, long idpersona) {
-		super();
-		this.idtelefono = idtelefono;
-		this.telefono = telefono;
-		this.idpersona = idpersona;
 	}
 
-	public long getIdtelefono() {
-		return idtelefono;
+	public int getIdtelefono() {
+		return this.idtelefono;
 	}
 
-	public void setIdtelefono(long idtelefono) {
+	public void setIdtelefono(int idtelefono) {
 		this.idtelefono = idtelefono;
 	}
 
 	public String getTelefono() {
-		return telefono;
+		return this.telefono;
 	}
 
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 
-	public long getIdpersona() {
-		return idpersona;
+	public Persona getPersona() {
+		return this.persona;
 	}
 
-	public void setIdpersona(long idpersona) {
-		this.idpersona = idpersona;
-	}
-
-	@Override
-	public String toString() {
-		return "Telefono [idtelefono=" + idtelefono + ", telefono=" + telefono + ", idpersona=" + idpersona + "]";
+	public void setPersona(Persona persona) {
+		this.persona = persona;
 	}
 
 }

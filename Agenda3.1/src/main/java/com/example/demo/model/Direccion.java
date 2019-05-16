@@ -1,64 +1,86 @@
 package com.example.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import java.io.Serializable;
+import javax.persistence.*;
 
+
+/**
+ * The persistent class for the direccion database table.
+ * 
+ */
 @Entity
-public class Direccion {
-	@Id
-	private long iddireccion;
-	private String direccion;
-	private String codpostal;
-	private String localidad;
-	private long idprovincia;
-	private long idpersona;
+@NamedQuery(name="Direccion.findAll", query="SELECT d FROM Direccion d")
+public class Direccion implements Serializable {
+	private static final long serialVersionUID = 1L;
 
-	public long getIddireccion() {
-		return iddireccion;
+	@Id
+	private int iddireccion;
+
+	private String codpostal;
+
+	private String direccion;
+
+	private String localidad;
+
+	//bi-directional many-to-one association to Persona
+	@ManyToOne
+	@JoinColumn(name="idpersona")
+	private Persona persona;
+
+	//bi-directional many-to-one association to Provincia
+	@ManyToOne
+	@JoinColumn(name="idprovincia")
+	private Provincia provincia;
+
+	public Direccion() {
 	}
 
-	public void setIddireccion(long iddireccion) {
+	public int getIddireccion() {
+		return this.iddireccion;
+	}
+
+	public void setIddireccion(int iddireccion) {
 		this.iddireccion = iddireccion;
 	}
 
-	public String getDireccion() {
-		return direccion;
-	}
-
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
-
 	public String getCodpostal() {
-		return codpostal;
+		return this.codpostal;
 	}
 
 	public void setCodpostal(String codpostal) {
 		this.codpostal = codpostal;
 	}
 
+	public String getDireccion() {
+		return this.direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
 	public String getLocalidad() {
-		return localidad;
+		return this.localidad;
 	}
 
 	public void setLocalidad(String localidad) {
 		this.localidad = localidad;
 	}
 
-	public long getIdprovincia() {
-		return idprovincia;
+	public Persona getPersona() {
+		return this.persona;
 	}
 
-	public void setIdprovincia(long idprovincia) {
-		this.idprovincia = idprovincia;
+	public void setPersona(Persona persona) {
+		this.persona = persona;
 	}
 
-	public long getIdpersona() {
-		return idpersona;
+	public Provincia getProvincia() {
+		return this.provincia;
 	}
 
-	public void setIdpersona(long idpersona) {
-		this.idpersona = idpersona;
+	public void setProvincia(Provincia provincia) {
+		this.provincia = provincia;
 	}
 
 }

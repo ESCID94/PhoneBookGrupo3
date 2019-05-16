@@ -15,8 +15,8 @@ public class PersonaDAOTest {
     public void test() {
         IPersonaDAO ipersonaDAO = new PersonaDAO();
         Date date = new Date(0);
-        Persona persona = new Persona(4,"dfhdf","dghh","dghgh","gfrhrgeh",date);
-        ipersonaDAO.add(persona);
+      
+
         
         
     }
