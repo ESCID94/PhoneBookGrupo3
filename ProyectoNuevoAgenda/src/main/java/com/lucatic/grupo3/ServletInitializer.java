@@ -1,10 +1,10 @@
 package com.lucatic.grupo3;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 
+public class ServletInitializer extends SpringBootServletInitializer {
 
-public class ServletInitializer extends org.springframework.boot.web.support.SpringBootServletInitializer {
-	
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(Grupo3AgendaApplication.class);
