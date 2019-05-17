@@ -11,5 +11,6 @@ public interface IPersonaDAO {
 	public List<Persona> list();
 
 	public void add(Persona persona);
+	public void delete(int id);
 
 }
