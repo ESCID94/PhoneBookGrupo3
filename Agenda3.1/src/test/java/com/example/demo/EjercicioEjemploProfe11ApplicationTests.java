@@ -37,5 +37,31 @@ public class EjercicioEjemploProfe11ApplicationTests {
 	}
 	
 	
+	@Autowired
+	PersonaDAO data = new PersonaDAO();	
+	
+    @Test
+    public void testAddPerson() {
+		@SuppressWarnings("deprecation")
+		Persona person = new Persona(25, "zaiter", "nada", "43434", new Date(25, 2, 2019), "nader");  
+        System.out.println(person);
+        data.add(person);
+    }
+ 
+    
+    @Test
+    public void testPersonDetails() {
+    	Persona person = new Persona(25, "zaiter", "nada", "43434", new Date(25, 2, 2019), "nader");  
+    	data.personaDetails(person.getIdpersona());
+    }
+    
+    @Test
+    public void testDeletePerson() {
+    	Persona person = new Persona(25, "zaiter", "nada", "43434", new Date(25, 2, 2019), "nader");  
+    	System.out.println(person.toString());
+    	data.delete(person.getIdpersona());
+    }
+	
+	
 
 }

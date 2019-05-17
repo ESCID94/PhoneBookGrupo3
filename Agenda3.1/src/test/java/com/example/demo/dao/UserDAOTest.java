@@ -16,5 +16,7 @@ public class UserDAOTest {
         dao.userDetails(user.getId());
         
     }
+	
+	
 
 }
