@@ -249,5 +249,19 @@ public class Persona implements Serializable {
 
 		return telefono;
 	}
+	@Override
+	public String toString() {
+		return "Persona [idpersona=" + idpersona + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", dni="
+				+ dni + ", fechanacimiento=" + fechanacimiento + ", nombre=" + nombre + ", direccions=" + direccions
+				+ ", telefonos=" + telefonos + "]";
+	}
+
+	public String toStringEntity() {
+		// TODO Auto-generated method stub
+		String cadena= this.getNombre() + "\n" + this.getApellido1() + "\n" + this.getDni() + "\n" + this.getFechanacimiento();
+		return cadena;
+	}
+	
+	
 
 }

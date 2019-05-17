@@ -25,7 +25,7 @@ public class PersonaServicios implements IPersonaServicios {
 	@Override
 	public List<Persona> list() {
 		// TODO Auto-generated method stub
-		return null;
+		return personaDao.list();
 	}
 
 	/* (non-Javadoc)

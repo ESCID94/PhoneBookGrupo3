@@ -27,7 +27,7 @@ public class PersonaDAO implements IPersonaDAO {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Persona> list() {
-		String hql = "FROM Persona ORDER BY PERSONA_ID";
+		String hql = "FROM Persona ORDER BY idpersona";
 		return (List<Persona>) entityManager.createQuery(hql).getResultList();
 	}
 

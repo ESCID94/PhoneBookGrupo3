@@ -51,5 +51,12 @@ public class AgendaApplicationTests {
 
 		personaServicios.update(persona);
 	}
+	
+	@Test
+	public void personaList() {
+		personaServicios.list().forEach(n-> System.out.println(n.toStringEntity()));
+	
+		
+	}
 
 }
