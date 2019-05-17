@@ -10,12 +10,20 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.Persona;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class PersonaDAO.
+ */
 @Repository
 public class PersonaDAO implements IPersonaDAO {
 
+	/** The entity manager. */
 	@PersistenceContext
 	EntityManager entityManager;
 
+	/* (non-Javadoc)
+	 * @see com.example.demo.dao.IPersonaDAO#list()
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Persona> list() {
@@ -23,6 +31,9 @@ public class PersonaDAO implements IPersonaDAO {
 		return (List<Persona>) entityManager.createQuery(hql).getResultList();
 	}
 
+	/* (non-Javadoc)
+	 * @see com.example.demo.dao.IPersonaDAO#add(com.example.demo.model.Persona)
+	 */
 	@Override
 	public void add(Persona persona) {
 		System.out.println(persona);
@@ -30,6 +41,9 @@ public class PersonaDAO implements IPersonaDAO {
 		System.out.println("conseguido");
 	}
 
+	/* (non-Javadoc)
+	 * @see com.example.demo.dao.IPersonaDAO#get(int)
+	 */
 	@Override
 	public Persona get(int id) {
 		// TODO Auto-generated method stub
@@ -38,6 +52,9 @@ public class PersonaDAO implements IPersonaDAO {
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see com.example.demo.dao.IPersonaDAO#update(com.example.demo.model.Persona)
+	 */
 	@Override
 	@Transactional
 	public void update(Persona persona) {
@@ -55,12 +72,18 @@ public class PersonaDAO implements IPersonaDAO {
 		entityManager.flush();
 	}
 
+	/* (non-Javadoc)
+	 * @see com.example.demo.dao.IPersonaDAO#delete(int)
+	 */
 	@Override
 	public void delete(int id) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see com.example.demo.dao.IPersonaDAO#personaDetails(int)
+	 */
 	@Override
 	public String personaDetails(int id) {
 		// TODO Auto-generated method stub

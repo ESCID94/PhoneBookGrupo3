@@ -31,7 +31,7 @@ import com.example.demo.services.PersonaServicios;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class EjercicioEjemploProfe11ApplicationTests {
+public class AgendaApplicationTests {
 
 	@Autowired
 	PersonaServicios personaServicios = new PersonaServicios();

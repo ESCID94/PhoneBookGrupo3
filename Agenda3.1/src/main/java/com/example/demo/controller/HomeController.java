@@ -16,20 +16,28 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.demo.model.User;
 import com.example.demo.services.IUserService;
 
+// TODO: Auto-generated Javadoc
 /**
- * 
- * The controller
- * @author Lucas
+ * The controller.
  *
+ * @author Lucas
  */
 @Controller
 public class HomeController {
 	
+	/** The iuser service. */
 	@Autowired
 	private IUserService iuserService;
 	
+	/** The Constant logger. */
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
+	/**
+	 * Handle request.
+	 *
+	 * @return the model and view
+	 * @throws Exception the exception
+	 */
 	@RequestMapping("/")
 	public ModelAndView handleRequest() throws Exception{
 		logger.info("---------------------------en Listado");
@@ -38,6 +46,12 @@ public class HomeController {
 		model.addObject("userList", listUsers);
 		return model;
 	}
+	
+	/**
+	 * New user.
+	 *
+	 * @return the model and view
+	 */
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
 	public ModelAndView newUser() {
 		logger.info("-- en New");
@@ -46,6 +60,12 @@ public class HomeController {
 		return model;
 	}
 	
+	/**
+	 * Edits the user.
+	 *
+	 * @param request the request
+	 * @return the model and view
+	 */
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public ModelAndView editUser(HttpServletRequest request) {
 		logger.info("--en EDIT");
@@ -56,6 +76,12 @@ public class HomeController {
 		return model;
 	}
 	
+	/**
+	 * Delete user.
+	 *
+	 * @param request the request
+	 * @return the model and view
+	 */
 	@RequestMapping(value="/delete", method = RequestMethod.GET)
 	public ModelAndView deleteUser(HttpServletRequest request) {
 		logger.info("-- en Delete");
@@ -64,7 +90,13 @@ public class HomeController {
 		return new ModelAndView("redirect:/");
 	}
 	
-	 @RequestMapping(value="/save" , method = RequestMethod.POST)
+	 /**
+ 	 * Save user.
+ 	 *
+ 	 * @param user the user
+ 	 * @return the model and view
+ 	 */
+ 	@RequestMapping(value="/save" , method = RequestMethod.POST)
 	 public ModelAndView saveUser(@ModelAttribute User user) {
 		 logger.info("-- en SAVE");
 		 iuserService.add(user);
