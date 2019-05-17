@@ -10,9 +10,14 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.Persona;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class PersonaDAO.
+ */
 @Repository
 public class PersonaDAO implements IPersonaDAO {
 
+	/** The entity manager. */
 	@PersistenceContext
 	EntityManager entityManager;
 	
@@ -28,6 +33,9 @@ public class PersonaDAO implements IPersonaDAO {
 		return (List<Persona>) entityManager.createQuery(hql).getResultList();
 	}
 
+	/* (non-Javadoc)
+	 * @see com.example.demo.dao.IPersonaDAO#add(com.example.demo.model.Persona)
+	 */
 	@Override
 	@Transactional
 	public void add(Persona persona) {
@@ -41,5 +49,57 @@ public class PersonaDAO implements IPersonaDAO {
 		entityManager.remove(getPersonaById(id));
 	}
 	
+
+	/* (non-Javadoc)
+	 * @see com.example.demo.dao.IPersonaDAO#get(int)
+	 */
+	@Override
+	public Persona get(int id) {
+		// TODO Auto-generated method stub
+		System.out.println(entityManager.find(Persona.class,id).toString());
+		return entityManager.find(Persona.class, id);
+		
+	}
+
+	/* (non-Javadoc)
+	 * @see com.example.demo.dao.IPersonaDAO#update(com.example.demo.model.Persona)
+	 */
+	@Override
+	@Transactional
+	public void update(Persona persona) {
+		// TODO Auto-generated method stub
+		Persona person = get(persona.getIdpersona());
+		
+		person.setNombre(persona.getNombre());
+		person.setApellido1(persona.getApellido1());
+		person.setApellido2(persona.getApellido2());
+		person.setDireccions((persona.getDireccions()));
+		person.setDni(persona.getDni());
+		person.setFechanacimiento(persona.getFechanacimiento());
+		person.setTelefonos(persona.getTelefonos());
+	
+		entityManager.flush();
+	}
+
+	/* (non-Javadoc)
+	 * @see com.example.demo.dao.IPersonaDAO#delete(int)
+	 */
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/* (non-Javadoc)
+	 * @see com.example.demo.dao.IPersonaDAO#personaDetails(int)
+	 */
+	@Override
+	public String personaDetails(int id) {
+		// TODO Auto-generated method stub
+		
+		
+		
+		return null;
+	}
 
 }
