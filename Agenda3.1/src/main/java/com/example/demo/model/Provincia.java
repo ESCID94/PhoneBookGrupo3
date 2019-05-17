@@ -64,4 +64,11 @@ public class Provincia implements Serializable {
 		return direccion;
 	}
 
+	@Override
+	public String toString() {
+		return "Provincia [idprovincia=" + idprovincia + ", provincia=" + provincia + ", direccions=" + direccions
+				+ "]";
+	}
+
+	
 }
