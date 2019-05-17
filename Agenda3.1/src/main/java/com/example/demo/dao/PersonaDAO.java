@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
@@ -23,10 +24,9 @@ public class PersonaDAO implements IPersonaDAO {
 	}
 
 	@Override
+	@Transactional
 	public void add(Persona persona) {
-		System.out.println(persona);
 		entityManager.merge(persona);
-		System.out.println("conseguido");
 	}
 
 }
