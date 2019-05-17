@@ -12,6 +12,7 @@ import java.util.List;
  * 
  */
 @Entity
+@Table (name = "persona")
 @NamedQuery(name="Persona.findAll", query="SELECT p FROM Persona p")
 public class Persona implements Serializable {
 	
@@ -53,6 +54,23 @@ public class Persona implements Serializable {
 	 */
 	public Persona() {
 	}
+	
+	
+
+	public Persona(int idpersona, String apellido1, String apellido2, String dni, Date fechanacimiento, String nombre,
+			List<Direccion> direccions, List<Telefono> telefonos) {
+		super();
+		this.idpersona = idpersona;
+		this.apellido1 = apellido1;
+		this.apellido2 = apellido2;
+		this.dni = dni;
+		this.fechanacimiento = fechanacimiento;
+		this.nombre = nombre;
+		this.direccions = direccions;
+		this.telefonos = telefonos;
+	}
+
+
 
 	/**
 	 * Gets the idpersona.
@@ -264,4 +282,13 @@ public class Persona implements Serializable {
 	
 	
 
+
+
+	@Override
+	public String toString() {
+		return "Persona [idpersona=" + idpersona + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", dni="
+				+ dni + ", fechanacimiento=" + fechanacimiento + ", nombre=" + nombre + "]";
+	}
+
+	
 }
