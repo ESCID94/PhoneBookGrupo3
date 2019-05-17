@@ -38,14 +38,14 @@ public class PersonaServicios implements IPersonaServicios {
 	@Override
 	public void delete(int id) {
 		// TODO Auto-generated method stub
-		
+		personaDao.delete(id);
 	}
 
 	@Override
-	public String personaDetails(int id) {
+	public void personaDetails(int id) {
 		// TODO Auto-generated method stub
 		
-		return null;
+		personaDao.personaDetails(id);
 	}
 
 }

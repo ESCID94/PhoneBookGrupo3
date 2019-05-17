@@ -4,11 +4,13 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.sound.midi.Soundbank;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.Persona;
+import com.example.demo.model.User;
 
 @Repository
 public class PersonaDAO implements IPersonaDAO {
@@ -22,7 +24,6 @@ public class PersonaDAO implements IPersonaDAO {
 		String hql = "FROM Persona ORDER BY PERSONA_ID";
 		return (List<Persona>) entityManager.createQuery(hql).getResultList();
 	}
-
 	@Override
 	@Transactional
 	public void add(Persona persona) {
@@ -33,6 +34,7 @@ public class PersonaDAO implements IPersonaDAO {
 	public Persona get(int id) {
 		// TODO Auto-generated method stub
 		System.out.println(entityManager.find(Persona.class,id).toString());
+		
 		return entityManager.find(Persona.class, id);
 		
 	}
@@ -55,18 +57,21 @@ public class PersonaDAO implements IPersonaDAO {
 	}
 
 	@Override
+	@Transactional
 	public void delete(int id) {
 		// TODO Auto-generated method stub
+		Persona person = this.get(id);
 		
+		entityManager.remove(person);
 	}
 
 	@Override
+	@Transactional
 	public String personaDetails(int id) {
 		// TODO Auto-generated method stub
+		Persona person = this.get(id);
 		
-		
-		
-		return null;
+		return person.toString();
 	}
 
 }
