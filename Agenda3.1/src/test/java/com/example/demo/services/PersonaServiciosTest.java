@@ -1,17 +1,11 @@
 package com.example.demo.services;
-
-import static org.junit.Assert.*;
-
 import java.sql.Date;
-import java.util.List;
-
 import org.junit.Test;
-
-import com.example.demo.model.Direccion;
 import com.example.demo.model.Persona;
 
 public class PersonaServiciosTest {
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void test() {
 		Persona persona = new Persona();
