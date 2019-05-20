@@ -29,7 +29,7 @@ public class PersonaDAO implements IPersonaDAO {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Persona> list() {
-		String hql = "FROM Persona ORDER BY PERSONA_ID";
+		String hql = "FROM Persona ORDER BY IDPERSONA";
 		return (List<Persona>) entityManager.createQuery(hql).getResultList();
 	}
 
@@ -43,11 +43,6 @@ public class PersonaDAO implements IPersonaDAO {
 		
 	}
 
-	@Override
-	@Transactional
-	public void delete(int id) {
-		entityManager.remove(getPersonaById(id));
-	}
 	
 
 	/* (non-Javadoc)
@@ -84,10 +79,11 @@ public class PersonaDAO implements IPersonaDAO {
 	/* (non-Javadoc)
 	 * @see com.example.demo.dao.IPersonaDAO#delete(int)
 	 */
+
 	@Override
+	@Transactional
 	public void delete(int id) {
-		// TODO Auto-generated method stub
-		
+		entityManager.remove(getPersonaById(id));
 	}
 
 	/* (non-Javadoc)

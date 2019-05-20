@@ -10,4 +10,6 @@ public interface IPersonaService {
 	
 	public void add(Persona persona);
 	public void delete(int id);
+
+	public Persona get(int idpersona);
 }

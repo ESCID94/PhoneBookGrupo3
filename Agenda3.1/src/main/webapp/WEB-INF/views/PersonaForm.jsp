@@ -1,4 +1,4 @@
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+ <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -16,21 +16,21 @@
 </head>
 <body>
 	<div align="center">
-		<h1>FORMULARIO DE USUARIOS (add/edit)</h1>
+		<h1>FORMULARIO DE PERSONAS (add/edit)</h1>
 		<table>
-			<form:form action="save" method="post" modelAttribute="user">
-				<form:hidden path="id" />
+			<form:form action="save" method="post" modelAttribute="persona">
+				<form:hidden path="idpersona" />
 				<tr>
-					<td>Usuario:</td>
-					<td><form:input path="username" /></td>
+					<td>Persona:</td>
+					<td><form:input path="nombre" /></td>
 				</tr>
 				<tr>
-					<td>Email:</td>
-					<td><form:input path="email" /></td>
+					<td>Primer apellido:</td>
+					<td><form:input path="apellido1" /></td>
 				</tr>
 				<tr>
-					<td>Password:</td>
-					<td><form:password path="password" /></td>
+					<td>Segundo Apellido:</td>
+					<td><form:password path="apellido2" /></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center"><input type="submit"

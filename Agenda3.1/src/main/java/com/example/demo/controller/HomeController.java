@@ -13,93 +13,98 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.demo.model.User;
-import com.example.demo.services.IUserService;
+import com.example.demo.model.Persona;
+import com.example.demo.services.IPersonaService;
 
-// TODO: Auto-generated Javadoc
 /**
- * The controller.
- *
+ * The controller
+ * 
  * @author Lucas
+ *
  */
 @Controller
 public class HomeController {
-	
-	/** The iuser service. */
+
+	/**
+	 * The Ipersona service
+	 */
 	@Autowired
-	private IUserService iuserService;
-	
-	/** The Constant logger. */
+	private IPersonaService ipersonaService;
+
+	/**
+	 * The Constant logger
+	 */
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
+
 	/**
 	 * Handle request.
-	 *
-	 * @return the model and view
+	 * 
+	 * @return The model and view
 	 * @throws Exception the exception
 	 */
 	@RequestMapping("/")
-	public ModelAndView handleRequest() throws Exception{
-		logger.info("---------------------------en Listado");
-		List<User> listUsers = iuserService.list();
-		ModelAndView model = new ModelAndView("UserList");
-		model.addObject("userList", listUsers);
+	public ModelAndView handleRequest() throws Exception {
+		logger.info("---------------------------en Listado de Personas");
+		List<Persona> listPersona = ipersonaService.list();
+		ModelAndView model = new ModelAndView("PersonaList");
+		model.addObject("PersonaList", listPersona);
 		return model;
 	}
-	
+
 	/**
-	 * New user.
+	 * New Persona
+	 *
 	 *
 	 * @return the model and view
 	 */
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
-	public ModelAndView newUser() {
-		logger.info("-- en New");
-		ModelAndView model = new ModelAndView("UserForm");
-		model.addObject("user", new User());
+	public ModelAndView newPersona() {
+		logger.info("-- en New Persona");
+		ModelAndView model = new ModelAndView("PersonaForm");
+		model.addObject("persona", new Persona());
 		return model;
 	}
-	
+
 	/**
-	 * Edits the user.
-	 *
+	 * Edit the Persona
+	 * 
 	 * @param request the request
 	 * @return the model and view
 	 */
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView editUser(HttpServletRequest request) {
-		logger.info("--en EDIT");
-		int userId = Integer.parseInt(request.getParameter("id"));
-		User user = iuserService.get(userId);
-		ModelAndView model = new ModelAndView("UserForm");
-		model.addObject("user" , user);
+	public ModelAndView editPersona(HttpServletRequest request) {
+		logger.info("-- en Edit Persona");
+		int idpersona = Integer.parseInt(request.getParameter("idpersona"));
+		Persona persona = ipersonaService.get(idpersona);
+		ModelAndView model = new ModelAndView("PersonaForm");
+		model.addObject("persona", persona);
 		return model;
 	}
-	
+
 	/**
-	 * Delete user.
+	 * Delete Persona.
 	 *
 	 * @param request the request
 	 * @return the model and view
 	 */
-	@RequestMapping(value="/delete", method = RequestMethod.GET)
-	public ModelAndView deleteUser(HttpServletRequest request) {
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public ModelAndView deletePersona(HttpServletRequest request) {
 		logger.info("-- en Delete");
-		int userId = Integer.parseInt(request.getParameter("id"));
-		iuserService.delete(userId);
+		int idpersona = Integer.parseInt(request.getParameter("idpersona"));
+		ipersonaService.delete(idpersona);
 		return new ModelAndView("redirect:/");
 	}
-	
-	 /**
- 	 * Save user.
- 	 *
- 	 * @param user the user
- 	 * @return the model and view
- 	 */
- 	@RequestMapping(value="/save" , method = RequestMethod.POST)
-	 public ModelAndView saveUser(@ModelAttribute User user) {
-		 logger.info("-- en SAVE");
-		 iuserService.add(user);
-		 return new ModelAndView("redirect:/");
-	 }
+
+	/**
+	 * Save Persona.
+	 *
+	 * @param user the user
+	 * @return the model and view
+	 */
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	public ModelAndView savePersona(@ModelAttribute Persona persona) {
+		logger.info("-- en SAVE");
+		ipersonaService.add(persona);
+		return new ModelAndView("redirect:/");
+	}
 }

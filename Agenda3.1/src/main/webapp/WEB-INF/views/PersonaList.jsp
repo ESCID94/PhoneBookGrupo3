@@ -13,35 +13,35 @@
 <spring:url value="resources/css/custom.css" var="custom" />
 <link href="${custom}" rel="stylesheet" />
 
-<title>LISTADO DE USUARIOS</title>
+<title>LISTADO DE PERSONAS</title>
 </head>
 <body>
 	<div align="center">
-		<h1>LISTADO DE USUARIOS</h1>
-		<p>Estos son los datos de la tabla de usuarios</p>
+		<h1>LISTADO DE PERSONAS</h1>
+		<p>Estos son los datos de la tabla de personas</p>
 
 		<table border="1">
 			<tr>
 				<th>Nº</th>
-				<th>Usuario</th>
-				<th>Password</th>
-				<th>Email</th>
-				<th>Acciones</th>
+				<th>persona</th>
+				<th>nombre</th>
+				<th>apellido1</th>
+				<th>apellido2</th>
 			</tr>
 
-			<c:forEach var="user" items="${userList}" varStatus="status">
+			<c:forEach var="pesona" items="${personaList}" varStatus="status">
 				<tr>
 					<td>${status.index + 1}</td>
-					<td>${user.username}</td>
-					<td><em>${user.password}</em></td>
-					<td>${user.email}</td>
-					<td><a href="edit?id=${user.id}">Modificar</a> | <a
-						href="delete?id=${user.id}">Eliminar</a></td>
+					<td>${persona.name}</td>
+					<td><em>${persona.apellido1}</em></td>
+					<td>${persona.apellido2}</td>
+					<td><a href="edit?id=${persona.idpersona}">Modificar</a> | <a
+						href="delete?id=${persona.idpersona}">Eliminar</a></td>
 				</tr>
 			</c:forEach>
 		</table>
 		<p>
-			<a href="new">Haz clic para crear un NUEVO USUARIO</a> 
+			<a href="new">Haz clic para crear una NUEVA PERSONA</a> 
 		</p>
 	</div>
 </body>

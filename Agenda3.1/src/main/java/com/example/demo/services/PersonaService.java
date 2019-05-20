@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.IPersonaDAO;
 import com.example.demo.model.Persona;
+
 @Service
 @Transactional
 public class PersonaService implements IPersonaService {
@@ -29,6 +30,11 @@ public class PersonaService implements IPersonaService {
 	public void delete(int id) {
 		ipersonaDAO.delete(id);
 		
+	}
+	@Override
+	public Persona get(int idpersona) {
+		return ipersonaDAO.get(idpersona);
+			
 	}
 
 }

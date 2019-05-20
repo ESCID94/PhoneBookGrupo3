@@ -35,6 +35,8 @@ public interface IPersonaDAO {
 	 * @param persona the persona
 	 */
 	public void add(Persona persona);
+	public void update(Persona persona);
 	public void delete(int id);
+	public String personaDetails(int id);
 
 }
