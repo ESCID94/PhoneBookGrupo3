@@ -4,15 +4,11 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.sound.midi.Soundbank;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.model.Persona;
-import com.example.demo.model.User;
-
 // TODO: Auto-generated Javadoc
 /**
  * The Class PersonaDAO.
@@ -33,7 +29,7 @@ public class PersonaDAO implements IPersonaDAO {
 	@Override
 	@Transactional
 	public List<Persona> list() {
-		String hql = "FROM Persona ORDER BY IDPERSONA";
+		String hql = "FROM Persona ORDER BY idpersona";
 		return (List<Persona>) entityManager.createQuery(hql).getResultList();
 	}
 

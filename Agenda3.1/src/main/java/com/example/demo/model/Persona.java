@@ -56,15 +56,6 @@ public class Persona implements Serializable {
 		
 	}
 	
-	public Persona(int idpersona, String apellido1, String apellido2, String dni, Date fechanacimiento, String nombre) {
-		super();
-		this.idpersona = idpersona;
-		this.apellido1 = apellido1;
-		this.apellido2 = apellido2;
-		this.dni = dni;
-		this.fechanacimiento = fechanacimiento;
-		this.nombre = nombre;
-	}
 	
 
 	public Persona(int idpersona, String apellido1, String apellido2, String dni, Date fechanacimiento, String nombre,
@@ -294,23 +285,6 @@ public class Persona implements Serializable {
 		String cadena= this.getNombre() + "\n" + this.getApellido1() + "\n" + this.getDni() + "\n" + this.getFechanacimiento();
 		return cadena;
 	}
-	
-	
-
-
-
-	@Override
-	public String toString() {
-		return "Persona [idpersona=" + idpersona + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", dni="
-				+ dni + ", fechanacimiento=" + fechanacimiento + ", nombre=" + nombre + "]";
-	}
-
-	@Override
-	public String toString() {
-		return "Persona [idpersona=" + idpersona + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", dni="
-				+ dni + ", fechanacimiento=" + fechanacimiento + ", nombre=" + nombre + "]";
-	}
-	
 	
 
 }

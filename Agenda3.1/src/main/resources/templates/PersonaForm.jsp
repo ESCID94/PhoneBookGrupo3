@@ -21,7 +21,7 @@
 			<form:form action="save" method="post" modelAttribute="persona">
 				<form:hidden path="idpersona" />
 				<tr>
-					<td>Persona:</td>
+					<td>Nombre:</td>
 					<td><form:input path="nombre" /></td>
 				</tr>
 				<tr>
@@ -31,6 +31,14 @@
 				<tr>
 					<td>Segundo Apellido:</td>
 					<td><form:password path="apellido2" /></td>
+				</tr>
+				<tr>
+					<td>DNI:</td>
+					<td><form:input path="dni" /></td>
+				</tr>
+				<tr>
+					<td>Fecha de nacimiento:</td>
+					<td><form:input path="fechanacimiento" /></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center"><input type="submit"
