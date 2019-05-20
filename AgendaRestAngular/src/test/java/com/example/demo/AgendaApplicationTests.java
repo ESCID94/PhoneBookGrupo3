@@ -22,7 +22,7 @@ import com.example.demo.services.AgendaService;
 public class AgendaApplicationTests<T> {
 
 	@Autowired
-	AgendaService<T, Serializable> servicios;
+	AgendaService servicios;
 	@SuppressWarnings("deprecation")
 	@Test
 	public void contextLoads() {
@@ -48,7 +48,7 @@ public class AgendaApplicationTests<T> {
 		tel.setTelefono("609353973");
 		persona.setTelefonos(tels);
 
-		servicios.add((T) persona);
+		servicios.add(persona);
 	}
 	
 	@Test

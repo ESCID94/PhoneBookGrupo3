@@ -3,7 +3,6 @@
  */
 package com.example.demo.services;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -24,17 +23,15 @@ import com.example.demo.model.Persona;
  * @param <ID> the generic type
  * @param <T>
  */
-@SuppressWarnings("hiding")
+
 @Service
 @Transactional
-public class AgendaService<Persona, ID extends Serializable> {
+public class AgendaService {
 
-	
-	
 	/** The repo. */
 	
 	@Autowired
-	AgendaRepository<Persona, ID> repo;
+	AgendaRepository repo;
 	
 	/**
 	 * List.
@@ -51,7 +48,7 @@ public class AgendaService<Persona, ID extends Serializable> {
 	 * @return the t
 	 */
 	public Persona get (int id) {
-		return (Persona) repo.findOne(id);}
+		return repo.findById(id).orElse(null);}
 	
 	/**
 	 * Adds the.
@@ -61,7 +58,7 @@ public class AgendaService<Persona, ID extends Serializable> {
 	 * @return 
 	 */
 	public Persona add(Persona p) {
-		return (Persona) repo.save(p);
+		return repo.save(p);
 	}
 	
 	/**
@@ -70,7 +67,7 @@ public class AgendaService<Persona, ID extends Serializable> {
 	 * @param t the t
 	 */
 	public Persona update(Persona p) {
-		return (Persona) repo.saveAndFlush(p);
+		return repo.saveAndFlush(p);
 	}
 	
 	/**
@@ -79,7 +76,7 @@ public class AgendaService<Persona, ID extends Serializable> {
 	 * @param id the id
 	 */
 	public void delete(int id) {
-		repo.delete(id);
+		repo.deleteById(id);
 	}
 	
 	/**

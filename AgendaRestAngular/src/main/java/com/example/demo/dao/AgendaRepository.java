@@ -8,6 +8,8 @@ import java.io.Serializable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
+import com.example.demo.model.Persona;
+
 
 /**
  * The Interface Repository.
@@ -16,6 +18,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
  * @param <ID> the generic type
  */
 @RepositoryRestResource
-public interface AgendaRepository<T, ID extends Serializable> extends JpaRepository<T, Serializable>{
+public interface AgendaRepository extends JpaRepository<Persona, Integer>{
 	
 }
