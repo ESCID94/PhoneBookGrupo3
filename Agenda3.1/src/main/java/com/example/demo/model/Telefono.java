@@ -89,4 +89,11 @@ public class Telefono implements Serializable {
 		this.persona = persona;
 	}
 
+	@Override
+	public String toString() {
+		return "Telefono [idtelefono=" + idtelefono + ", telefono=" + telefono + ", persona=" + persona + "]";
+	}
+	
+	
+
 }

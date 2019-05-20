@@ -13,25 +13,53 @@ import com.example.demo.model.Persona;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class EjercicioEjemploProfe11ApplicationTests {
+
 	@Autowired
-	IPersonaDAO data = new PersonaDAO();
+	PersonaServicios services = new PersonaServicios();
+	
 	@Test
-	   public void testAddPerson() {
+	public void testBuscarPersona() throws Exception{
+		Date mydate = new Date(1992,10,1);
+		Persona persona = new Persona(100,"alvaro","alvaro","129129n",mydate,"alvaro",null,null);
+		System.out.println(persona.toString());
+		int id = persona.getIdpersona();
+		services.get(id);
+		persona.toString();
 
-	       @SuppressWarnings("deprecation")
-	        Persona person = new Persona(80,"raposo","vieira", "49017", new java.util.Date(1996, 10, 8),"lucas");
-	       System.out.println(person);
-	       data.add(person);
-	   }
+	}
+	
+	@Test
+	public void testListarPersonas() throws Exception{
+		services.list().forEach(n->System.out.println(n.toString()));
 
-	@Test
-	public void testDeletePerson() {
-		
-		testAddPerson();
-		data.delete();
 	}
-	@Test
-	public void contextLoads() {
-	}
+	
+	
+	@Autowired
+	PersonaDAO data = new PersonaDAO();	
+	
+    @Test
+    public void testAddPerson() {
+		@SuppressWarnings("deprecation")
+		Persona person = new Persona(25, "zaiter", "nada", "43434", new Date(25, 2, 2019), "nader");  
+        System.out.println(person);
+        data.add(person);
+    }
+ 
+    
+    @Test
+    public void testPersonDetails() {
+    	Persona person = new Persona(25, "zaiter", "nada", "43434", new Date(25, 2, 2019), "nader");  
+    	data.personaDetails(person.getIdpersona());
+    }
+    
+    @Test
+    public void testDeletePerson() {
+    	Persona person = new Persona(25, "zaiter", "nada", "43434", new Date(25, 2, 2019), "nader");  
+    	System.out.println(person.toString());
+    	data.delete(person.getIdpersona());
+    }
+	
+	
 
 }
