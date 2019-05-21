@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.model.Persona;
-import com.example.demo.services.IPersonaService;
+import com.example.demo.services.IPersonaServicios;
 
 /**
  * The controller
@@ -29,7 +29,7 @@ public class HomeController {
 	 * The Ipersona service
 	 */
 	@Autowired
-	private IPersonaService ipersonaService;
+	private IPersonaServicios ipersonaService;
 
 	/**
 	 * The Constant logger

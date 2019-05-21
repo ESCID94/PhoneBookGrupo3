@@ -8,7 +8,7 @@ import javax.sound.midi.Soundbank;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+
 
 import com.example.demo.model.Persona;
 import com.example.demo.model.User;

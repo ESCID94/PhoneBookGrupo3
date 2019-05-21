@@ -82,15 +82,6 @@ public class Persona implements Serializable {
 
 
 
-	public Persona(int idpersona, String apellido1, String apellido2, String dni, Date fechanacimiento, String nombre) {
-		super();
-		this.idpersona = idpersona;
-		this.apellido1 = apellido1;
-		this.apellido2 = apellido2;
-		this.dni = dni;
-		this.fechanacimiento = fechanacimiento;
-		this.nombre = nombre;
-	}
 
 	public int getIdpersona() {
 		return this.idpersona;
@@ -282,12 +273,7 @@ public class Persona implements Serializable {
 
 		return telefono;
 	}
-	@Override
-	public String toString() {
-		return "Persona [idpersona=" + idpersona + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", dni="
-				+ dni + ", fechanacimiento=" + fechanacimiento + ", nombre=" + nombre + ", direccions=" + direccions
-				+ ", telefonos=" + telefonos + "]";
-	}
+	
 
 	public String toStringEntity() {
 		// TODO Auto-generated method stub
@@ -305,11 +291,6 @@ public class Persona implements Serializable {
 				+ dni + ", fechanacimiento=" + fechanacimiento + ", nombre=" + nombre + "]";
 	}
 
-	@Override
-	public String toString() {
-		return "Persona [idpersona=" + idpersona + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", dni="
-				+ dni + ", fechanacimiento=" + fechanacimiento + ", nombre=" + nombre + "]";
-	}
 	
 	
 
