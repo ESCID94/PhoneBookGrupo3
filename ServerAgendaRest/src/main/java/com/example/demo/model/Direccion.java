@@ -3,6 +3,9 @@ package com.example.demo.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 
 // TODO: Auto-generated Javadoc
 /**

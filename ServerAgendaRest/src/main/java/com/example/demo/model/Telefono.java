@@ -3,6 +3,9 @@ package com.example.demo.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 
 // TODO: Auto-generated Javadoc
 /**
@@ -11,6 +14,7 @@ import javax.persistence.*;
  */
 @Entity
 @NamedQuery(name="Telefono.findAll", query="SELECT t FROM Telefono t")
+
 public class Telefono implements Serializable {
 	
 	/** The Constant serialVersionUID. */
@@ -26,6 +30,7 @@ public class Telefono implements Serializable {
 	/** The persona. */
 	//bi-directional many-to-one association to Persona
 	@ManyToOne
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name="idpersona")
 	private Persona persona;
 

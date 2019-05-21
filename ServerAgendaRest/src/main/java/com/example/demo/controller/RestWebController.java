@@ -4,6 +4,7 @@ package com.example.demo.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -16,7 +17,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping({ "/" })
+@RequestMapping({ "/personas" })
+@Component
 public class RestWebController {
 
 	@Autowired
@@ -114,7 +116,7 @@ public class RestWebController {
 		return service.get(id);
 	}
 
-	@PutMapping(path = { "/{id}" })
+	@PatchMapping(path = { "/{id}" })
 	public Persona update(@PathVariable("id") int id, @RequestBody Persona persona) {
 		persona.setIdpersona(id);
 		return service.update(persona);

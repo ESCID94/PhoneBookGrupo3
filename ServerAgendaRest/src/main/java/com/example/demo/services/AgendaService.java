@@ -3,6 +3,7 @@
  */
 package com.example.demo.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -11,7 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.AgendaRepository;
+import com.example.demo.model.Direccion;
 import com.example.demo.model.Persona;
+import com.example.demo.model.Telefono;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 // TODO: Auto-generated Javadoc
@@ -38,6 +42,7 @@ public class AgendaService {
 	 *
 	 * @return the list
 	 */
+	
 	public List<Persona> list(){
 		return repo.findAll();}
 	
@@ -76,6 +81,24 @@ public class AgendaService {
 	 * @param id the id
 	 */
 	public void delete(int id) {
+		Persona p = get(id);		
+		List<Telefono> telefonos = p.getTelefonos(); 
+		List<Direccion> direcciones = p.getDireccions();
+		List<Telefono> telefonosAux = new ArrayList<Telefono>();
+		List<Direccion> direccionesAux = new ArrayList<Direccion>();
+		
+		for (Direccion direccion : direcciones) {
+			direccion.setPersona(null);
+			direccionesAux.add(direccion);
+		}
+		
+		for (Telefono telefono : telefonos) {
+			telefono.setPersona(null);
+			telefonosAux.add(telefono);
+		}
+		p.setDireccions(direccionesAux);
+		p.setTelefonos(telefonosAux);
+		repo.saveAndFlush(p);
 		repo.deleteById(id);
 	}
 	
@@ -88,5 +111,4 @@ public class AgendaService {
 	public String details(int id) {
 		return get(id).toString();
 	}
-	
 }
