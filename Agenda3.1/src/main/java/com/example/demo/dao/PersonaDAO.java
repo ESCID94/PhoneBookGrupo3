@@ -4,15 +4,11 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.sound.midi.Soundbank;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.model.Persona;
-import com.example.demo.model.User;
-
 // TODO: Auto-generated Javadoc
 /**
  * The Class PersonaDAO.
@@ -23,10 +19,12 @@ public class PersonaDAO implements IPersonaDAO {
 	/** The entity manager. */
 	@PersistenceContext
 	EntityManager entityManager;
+	
+	public PersonaDAO() {}
 
-	/* (non-Javadoc)
-	 * @see com.example.demo.dao.IPersonaDAO#list()
-	 */
+	public Persona getPersonaById(int id) {
+		return entityManager.find(Persona.class, id);
+	}
 	@SuppressWarnings("unchecked")
 	@Override
 	@Transactional
@@ -42,31 +40,10 @@ public class PersonaDAO implements IPersonaDAO {
 	@Transactional
 	public void add(Persona persona) {
 		entityManager.merge(persona);
+		
 	}
+
 	
-	@Override
-	public Persona get (int id) {
-		return entityManager.find(Persona.class, id);
-		
-	}
-
-	@Override
-	public void update(Persona persona) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void delete(int id) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public String personaDetails(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	/* (non-Javadoc)
 	 * @see com.example.demo.dao.IPersonaDAO#get(int)
@@ -103,13 +80,11 @@ public class PersonaDAO implements IPersonaDAO {
 	/* (non-Javadoc)
 	 * @see com.example.demo.dao.IPersonaDAO#delete(int)
 	 */
+
 	@Override
 	@Transactional
 	public void delete(int id) {
-		// TODO Auto-generated method stub
-		Persona person = this.get(id);
-		
-		entityManager.remove(person);
+		entityManager.remove(getPersonaById(id));
 	}
 
 	/* (non-Javadoc)

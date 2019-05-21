@@ -35,26 +35,8 @@ public interface IPersonaDAO {
 	 * @param persona the persona
 	 */
 	public void add(Persona persona);
-	
-	/**
-	 * Update.
-	 *
-	 * @param persona the persona
-	 */
-	public void update(Persona persona);	
-	
-	/**
-	 * Delete.
-	 *
-	 * @param id the id
-	 */
+	public void update(Persona persona);
 	public void delete(int id);
-	
-	/**
-	 * Persona details.
-	 *
-	 * @param id the id
-	 * @return the string
-	 */
 	public String personaDetails(int id);
+
 }
