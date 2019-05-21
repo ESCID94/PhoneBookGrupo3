@@ -56,15 +56,6 @@ public class Persona implements Serializable {
 		
 	}
 	
-	public Persona(int idpersona, String apellido1, String apellido2, String dni, Date fechanacimiento, String nombre) {
-		super();
-		this.idpersona = idpersona;
-		this.apellido1 = apellido1;
-		this.apellido2 = apellido2;
-		this.dni = dni;
-		this.fechanacimiento = fechanacimiento;
-		this.nombre = nombre;
-	}
 	
 
 	public Persona(int idpersona, String apellido1, String apellido2, String dni, Date fechanacimiento, String nombre,

@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping({ "/" })
-public class RestWebController<T, ID extends Serializable> {
+public class RestWebController {
 
 	@Autowired
 	private AgendaService service;

@@ -29,14 +29,14 @@
 				<th>apellido2</th>
 			</tr>
 
-			<c:forEach var="pesona" items="${personaList}" varStatus="status">
+			<c:forEach var="persona" items="${personaList}" varStatus="status">
 				<tr>
 					<td>${status.index + 1}</td>
 					<td>${persona.name}</td>
 					<td><em>${persona.apellido1}</em></td>
 					<td>${persona.apellido2}</td>
-					<td><a href="edit?id=${persona.idpersona}">Modificar</a> | <a
-						href="delete?id=${persona.idpersona}">Eliminar</a></td>
+					<td><a href="edit?idpersona=${persona.idpersona}">Modificar</a> | <a
+						href="delete?idpersona=${persona.idpersona}">Eliminar</a></td>
 				</tr>
 			</c:forEach>
 		</table>

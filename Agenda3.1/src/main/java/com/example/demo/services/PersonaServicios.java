@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.dao.IPersonaDAO;
 import com.example.demo.dao.PersonaDAO;
 import com.example.demo.model.Persona;
 // TODO: Auto-generated Javadoc
@@ -17,7 +18,7 @@ public class PersonaServicios implements IPersonaServicios {
 	
 	/** The persona dao. */
 	@Autowired
-	PersonaDAO personaDao = new PersonaDAO();
+	private IPersonaDAO ipersonaDao = new PersonaDAO();
 	
 	/* (non-Javadoc)
 	 * @see com.example.demo.services.IPersonaServicios#list()
@@ -25,7 +26,7 @@ public class PersonaServicios implements IPersonaServicios {
 	@Override
 	public List<Persona> list() {
 		// TODO Auto-generated method stub
-		return personaDao.list();
+		return ipersonaDao.list();
 	}
 
 	/* (non-Javadoc)
@@ -34,7 +35,7 @@ public class PersonaServicios implements IPersonaServicios {
 	@Override
 	public Persona get(int id) {
 		// TODO Auto-generated method stub
-		return personaDao.get(id);
+		return ipersonaDao.get(id);
 	}
 
 	/* (non-Javadoc)
@@ -42,7 +43,7 @@ public class PersonaServicios implements IPersonaServicios {
 	 */
 	@Override
 	public void add(Persona persona) {
-		// TODO Auto-generated method stub
+		ipersonaDao.add(persona);
 		
 	}
 
@@ -52,7 +53,7 @@ public class PersonaServicios implements IPersonaServicios {
 	@Override
 	public void update(Persona persona) {
 		// TODO Auto-generated method stub
-		personaDao.update(persona);
+		ipersonaDao.update(persona);
 	}
 
 	/* (non-Javadoc)
@@ -61,7 +62,7 @@ public class PersonaServicios implements IPersonaServicios {
 	@Override
 	public void delete(int id) {
 		// TODO Auto-generated method stub
-		personaDao.delete(id);
+		ipersonaDao.delete(id);
 	}
 
 	/* (non-Javadoc)
@@ -71,7 +72,7 @@ public class PersonaServicios implements IPersonaServicios {
 	public String personaDetails(int id) {
 		// TODO Auto-generated method stub
 		
-		return personaDao.personaDetails(id);
+		ipersonaDao.personaDetails(id);
 	}
 
 }

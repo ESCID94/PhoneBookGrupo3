@@ -55,5 +55,5 @@ public interface IPersonaServicios {
 	 * @param id the id
 	 * @return the string
 	 */
-	public String personaDetails(int id);
+	public void personaDetails(int id);
 }

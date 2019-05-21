@@ -26,6 +26,10 @@ public class AgendaApplicationTests<T> {
 	@SuppressWarnings("deprecation")
 	@Test
 	public void contextLoads() {
+		//Incluir logger
+		//Incluir assert aserciones
+		//Guardo la persona y hago una query para asegurarme que me devuelve true
+		
 		Persona persona = new Persona();
 		System.out.println("---------------------------------" + servicios.get(1).toString());
 		
@@ -47,6 +51,8 @@ public class AgendaApplicationTests<T> {
 		tel.setPersona(persona);
 		tel.setTelefono("609353973");
 		persona.setTelefonos(tels);
+		
+		
 
 		servicios.add(persona);
 	}
