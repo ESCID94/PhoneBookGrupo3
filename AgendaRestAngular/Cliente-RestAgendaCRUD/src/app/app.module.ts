@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CrearEditarComponent } from './componentes/crear-editar/crear-editar.component';
 import { BuscarListarComponent } from './componentes/buscar-listar/buscar-listar.component';
-
+import { FilterPipe} from './componentes/buscar-listar/filter.pipe'
 import { PersonaServiciosService } from './servicios/persona-servicios.service';
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from '@angular/forms';
@@ -13,7 +13,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     CrearEditarComponent,
-    BuscarListarComponent
+    BuscarListarComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
