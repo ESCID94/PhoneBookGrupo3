@@ -1,0 +1,27 @@
+<div class="col-md-6">
+  <h2> Detalles Persona</h2>
+  
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>Nombre</th>
+      <th>Apellido1</th>
+      <th>Apellido2</th>
+      <th>DNI</th>
+      <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let persona of personas">
+      <td class="hidden">{{persona.idpersona}}</td>
+      <td>{{persona.nombre}}</td>
+      <td>{{persona.apellido1}}</td>
+      <td>{{persona.apellido2}}</td>
+      <td>{{persona.dni}}</td>
+      <td><button class="btn btn-danger" (click)="deletePersona(persona)">Borrar Persona</button></td>
+      
+    </tr>
+    </tbody>
+  </table>
+  </div>
