@@ -10,6 +10,10 @@
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1557760507166_2" label="Window Working Set" name="Aggregate for window 1557760507166"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1557843841716_3" label="Window Working Set" name="Aggregate for window 1557843841716"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1558007008993_4" label="Window Working Set" name="Aggregate for window 1558007008993"/>
+<<<<<<< HEAD
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1558014808176_5" label="Window Working Set" name="Aggregate for window 1558014808176"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1558362326969_6" label="Window Working Set" name="Aggregate for window 1558362326969"/>
+=======
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1558196479067_5" label="Window Working Set" name="Aggregate for window 1558196479067"/>
+>>>>>>> master
 </workingSetManager>

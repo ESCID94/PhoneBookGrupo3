@@ -1,3 +1,4 @@
 \.metadata
 .metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml
 .metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml
+node_modules
