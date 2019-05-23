@@ -9,12 +9,14 @@ import { FilterPipe} from './servicios/filter.pipe'
 import { PersonaServiciosService } from './servicios/persona-servicios.service';
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from '@angular/forms';
+import { DetalleComponent } from './componentes/detalle/detalle.component';
 @NgModule({
   declarations: [
     AppComponent,
     CrearEditarComponent,
     BuscarListarComponent,
-    FilterPipe
+    FilterPipe,
+    DetalleComponent
   ],
   imports: [
     BrowserModule,
