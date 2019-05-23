@@ -1,14 +1,16 @@
 package com.example.demo;
 
+import java.util.Date;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.example.demo.dao.IPersonaDAO;
 import com.example.demo.dao.PersonaDAO;
 import com.example.demo.model.Persona;
+import com.example.demo.services.PersonaServicios;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -16,6 +18,8 @@ public class EjercicioEjemploProfe11ApplicationTests {
 
 	@Autowired
 	PersonaServicios services = new PersonaServicios();
+	@Autowired
+	PersonaDAO data = new PersonaDAO();	
 	
 	@Test
 	public void testBuscarPersona() throws Exception{
@@ -34,9 +38,6 @@ public class EjercicioEjemploProfe11ApplicationTests {
 
 	}
 	
-	
-	@Autowired
-	PersonaDAO data = new PersonaDAO();	
 	
     @Test
     public void testAddPerson() {

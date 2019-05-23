@@ -69,7 +69,7 @@ public class PersonaServicios implements IPersonaServicios {
 	 * @see com.example.demo.services.IPersonaServicios#personaDetails(int)
 	 */
 	@Override
-	public void personaDetails(int id) {
+	public String personaDetails(int id) {
 		// TODO Auto-generated method stub
 		
 		ipersonaDao.personaDetails(id);

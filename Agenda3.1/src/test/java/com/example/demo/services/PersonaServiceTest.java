@@ -32,6 +32,19 @@ public class PersonaServiceTest {
 	       System.out.println(person);
 	       dao.add(person);
 	   }
+	
+	@Test
+	public void testBuscarPersona() throws Exception{
+		Date mydate = new Date(1992,10,1);
+		Persona persona = new Persona(100,"alvaro","alvaro","129129n",mydate,"alvaro",null,null);
+		System.out.println(persona);
+		PersonaServicios services = new PersonaServicios();
+		int id = persona.getIdpersona();
+		services.get(id);
+		persona.toString();
+
+	}
+	
 //	
 //	@Test
 //	public void deleteTest() throws Exception {

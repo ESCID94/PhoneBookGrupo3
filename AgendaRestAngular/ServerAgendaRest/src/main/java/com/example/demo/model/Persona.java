@@ -2,6 +2,15 @@ package com.example.demo.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreType;
+
 import java.util.Date;
 import java.util.List;
 
@@ -12,8 +21,9 @@ import java.util.List;
  * 
  */
 @Entity
-@Table (name = "persona")
 @NamedQuery(name="Persona.findAll", query="SELECT p FROM Persona p")
+@JsonIgnoreType	
+@Component
 public class Persona implements Serializable {
 	
 	/** The Constant serialVersionUID. */
@@ -21,6 +31,7 @@ public class Persona implements Serializable {
 
 	/** The idpersona. */
 	@Id
+	
 	private int idpersona;
 
 	/** The apellido 1. */
@@ -42,38 +53,28 @@ public class Persona implements Serializable {
 	/** The direccions. */
 	//bi-directional many-to-one association to Direccion
 	@OneToMany(mappedBy="persona")
+	@OnDelete(action = OnDeleteAction.NO_ACTION)
+	@JsonIgnore
 	private List<Direccion> direccions;
 
 	/** The telefonos. */
 	//bi-directional many-to-one association to Telefono
 	@OneToMany(mappedBy="persona")
+	@OnDelete(action = OnDeleteAction.NO_ACTION)
+	@JsonIgnore
 	private List<Telefono> telefonos;
 
 	/**
 	 * Instantiates a new persona.
 	 */
 	public Persona() {
-		
-	}
-	
-	
-
-	public Persona(int idpersona, String apellido1, String apellido2, String dni, Date fechanacimiento, String nombre,
-			List<Direccion> direccions, List<Telefono> telefonos) {
-		super();
-		this.idpersona = idpersona;
-		this.apellido1 = apellido1;
-		this.apellido2 = apellido2;
-		this.dni = dni;
-		this.fechanacimiento = fechanacimiento;
-		this.nombre = nombre;
-		this.direccions = direccions;
-		this.telefonos = telefonos;
 	}
 
-
-
-
+	/**
+	 * Gets the idpersona.
+	 *
+	 * @return the idpersona
+	 */
 	public int getIdpersona() {
 		return this.idpersona;
 	}
@@ -264,24 +265,18 @@ public class Persona implements Serializable {
 
 		return telefono;
 	}
-	
+	@Override
+	public String toString() {
+		return "Persona [idpersona=" + idpersona + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", dni="
+				+ dni + ", fechanacimiento=" + fechanacimiento + ", nombre=" + nombre + ", direccions=" + direccions
+				+ ", telefonos=" + telefonos + "]";
+	}
 
 	public String toStringEntity() {
 		// TODO Auto-generated method stub
 		String cadena= this.getNombre() + "\n" + this.getApellido1() + "\n" + this.getDni() + "\n" + this.getFechanacimiento();
 		return cadena;
 	}
-	
-	
-
-
-
-	@Override
-	public String toString() {
-		return "Persona [idpersona=" + idpersona + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", dni="
-				+ dni + ", fechanacimiento=" + fechanacimiento + ", nombre=" + nombre + "]";
-	}
-
 	
 	
 
