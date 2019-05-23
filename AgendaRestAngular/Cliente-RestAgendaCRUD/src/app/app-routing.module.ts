@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 //Nuevo
-import { CrearEditarComponent } from './componentes/crear-editar/crear-editar.component';
-import { BuscarListarComponent } from './componentes/buscar-listar/buscar-listar.component';
+import { CrearComponent } from './componentes/crear/crear.component';
+import { BuscarListarEditarComponent } from './componentes/buscar-listar-editar/buscar-listar-editar.component';
 
 //creamos las rutas
 const routes: Routes = [
-{path: 'crear', component:CrearEditarComponent},
-{path: 'listar', component:BuscarListarComponent}
+{path: 'crear', component:CrearComponent},
+{path: 'listar', component:BuscarListarEditarComponent}
 ];
 
 

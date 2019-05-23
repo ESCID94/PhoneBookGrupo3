@@ -8,10 +8,12 @@ import { PersonaServiciosService } from '../../servicios/persona-servicios.servi
 
 @Component({
   selector: 'app-buscar-listar',
-  templateUrl: './buscar-listar.component.html',
-  styleUrls: ['./buscar-listar.component.css']
+  templateUrl: './buscar-listar-editar.component.html',
+  styleUrls: ['./buscar-listar-editar.component.css']
 })
-export class BuscarListarComponent implements OnInit {
+
+
+export class BuscarListarEditarComponent implements OnInit {
 
    //Todo la clase es nueva
 
@@ -39,5 +41,19 @@ export class BuscarListarComponent implements OnInit {
       //los guardo otra vez con observer y cuando esten los filtro
     })
   };
+
+  guardarPersona(persona:Persona): void {
+    this.personaServicio.guardarPersona(persona)
+    .subscribe(data => {
+      this.personas = this.personas; 
+      alert("Ha guardado una persona de forma correcta.");
+   });
+  };
+
+IsHidden= true;
+
+onSelect(){
+ this.IsHidden= !this.IsHidden;
+}
 
 }

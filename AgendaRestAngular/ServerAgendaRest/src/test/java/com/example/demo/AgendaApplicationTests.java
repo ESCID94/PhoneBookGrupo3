@@ -1,10 +1,7 @@
 package com.example.demo;
 
-import java.awt.List;
-import java.io.Serializable;
 import java.sql.Date;
 
-import org.hibernate.mapping.Set;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +14,24 @@ import com.example.demo.model.Telefono;
 import com.example.demo.services.AgendaService;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class AgendaApplicationTests.
+ *
+ * @param <T> the generic type
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class AgendaApplicationTests<T> {
 
+	/** The servicios. */
 	@Autowired
 	AgendaService servicios;
-	@SuppressWarnings("deprecation")
+	
+	/**
+	 * Context loads.
+	 */
+	@SuppressWarnings({ "deprecation", "null" })
 	@Test
 	public void contextLoads() {
 		//Incluir logger
@@ -57,17 +65,5 @@ public class AgendaApplicationTests<T> {
 		servicios.add(persona);
 	}
 	
-	@Test
-	public void personaList() {
-		servicios.list().forEach(n-> System.out.println(((Persona) n).toStringEntity()));
-	
-		
-	}
-	
-	@Test 
-	public void eliminar() {
-		
-		
-	}
 
 }

@@ -15,17 +15,12 @@ import com.example.demo.dao.AgendaRepository;
 import com.example.demo.model.Direccion;
 import com.example.demo.model.Persona;
 import com.example.demo.model.Telefono;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class Services.
- * @param <T>
- *
- * @param <T> the generic type
- * @param <ID> the generic type
- * @param <T>
  */
 
 @Service
@@ -57,10 +52,9 @@ public class AgendaService {
 	
 	/**
 	 * Adds the.
-	 * @param <T>
 	 *
-	 * @param t the t
-	 * @return 
+	 * @param p the p
+	 * @return the persona
 	 */
 	public Persona add(Persona p) {
 		return repo.save(p);
@@ -69,7 +63,8 @@ public class AgendaService {
 	/**
 	 * Update.
 	 *
-	 * @param t the t
+	 * @param p the p
+	 * @return the persona
 	 */
 	public Persona update(Persona p) {
 		return repo.saveAndFlush(p);

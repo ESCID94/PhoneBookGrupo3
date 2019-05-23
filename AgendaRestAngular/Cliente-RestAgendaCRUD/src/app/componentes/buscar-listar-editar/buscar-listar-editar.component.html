@@ -1,0 +1,47 @@
+<div style="text-align: center;margin-left: auto;margin-right: auto"  class="col-md-6">  
+
+  <input class="form-control" id="input1-group1 " 
+  style="margin-top:20px" type="text" name="search" placeholder="Introduce nombre a buscar"
+  [(ngModel)]="nombreBuscar">
+
+  <table class="table table-striped">
+      <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>DNI</th>
+            <th>Detalles</th>
+            <th>Acciones</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let persona of personas| filter : nombreBuscar; let i=index;">
+              <td>
+                  <input type="text" [(ngModel)]="persona.nombre" [disabled]="!persona.isEditable">
+              </td>
+              <td>
+                  <input type="text" [(ngModel)]="persona.apellido1" [disabled]="!persona.isEditable">
+              </td>
+              <td>
+                  <input type="text" [(ngModel)]="persona.dni" [disabled]="!persona.isEditable">
+              </td>
+              <td><button class="btn-info" cursor:pointer>
+                 <details>
+                      <th>Fecha de nacimiento</th>
+                      <th>Dirección</th>
+                      <th>Teléfonos</th>
+                      <tr> 
+                      <td>{{persona.fechanacimiento}}</td>
+                      <td>Madrid</td>
+                      <td>902202122</td>
+                      </tr>
+                  </details>
+                </button>
+              </td>
+              <td><button class="btn-warning"  cursor:pointer (click)="persona.isEditable=!persona.isEditable" *ngIf="!persona.isEditable">Editar</button></td>
+              <td><button class="btn-primary" cursor:pointer *ngIf="persona.isEditable" (click)="persona.isEditable=!persona.isEditable" (click)="guardarPersona(persona)">Guardar</button></td> 
+              <td><button class="btn-danger" cursor:pointer *ngIf="persona.isEditable" (click)="persona.isEditable=!persona.isEditable" (click)="deletePersona(persona)">Borrar</button></td> 
+          </tr>
+      </tbody>
+      </table>
+</div>

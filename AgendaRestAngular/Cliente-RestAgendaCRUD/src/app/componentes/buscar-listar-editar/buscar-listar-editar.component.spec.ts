@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BuscarListarComponent } from './buscar-listar.component';
+import { BuscarListarEditarComponent } from './buscar-listar-editar.component';
 
 describe('BuscarListarComponent', () => {
-  let component: BuscarListarComponent;
-  let fixture: ComponentFixture<BuscarListarComponent>;
+  let component: BuscarListarEditarComponent;
+  let fixture: ComponentFixture<BuscarListarEditarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BuscarListarComponent ]
+      declarations: [ BuscarListarEditarComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BuscarListarComponent);
+    fixture = TestBed.createComponent(BuscarListarEditarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

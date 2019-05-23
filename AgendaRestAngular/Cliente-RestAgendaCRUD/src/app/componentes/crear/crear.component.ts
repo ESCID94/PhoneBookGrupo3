@@ -7,11 +7,11 @@ import { PersonaServiciosService } from '../../servicios/persona-servicios.servi
 
 
 @Component({
-  selector: 'app-crear-editar',
-  templateUrl: './crear-editar.component.html',
-  styleUrls: ['./crear-editar.component.css']
+  selector: 'app-crear',
+  templateUrl: './crear.component.html',
+  styleUrls: ['./crear.component.css']
 })
-export class CrearEditarComponent implements OnInit {
+export class CrearComponent implements OnInit {
 
   //nuevo
   persona: Persona = new Persona();

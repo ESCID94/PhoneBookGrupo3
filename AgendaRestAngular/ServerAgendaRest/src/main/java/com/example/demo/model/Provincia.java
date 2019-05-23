@@ -115,6 +115,9 @@ public class Provincia implements Serializable {
 		return direccion;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return "Provincia [idprovincia=" + idprovincia + ", provincia=" + provincia + ", direccions=" + direccions

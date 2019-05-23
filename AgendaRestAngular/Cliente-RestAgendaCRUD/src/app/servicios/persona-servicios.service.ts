@@ -28,6 +28,10 @@ export class PersonaServiciosService {
     return this.http.post<Persona>(this.personaUrl,persona);
   }
 
+  public guardarPersona(persona){
+    return this.http.put<Persona>(this.personaUrl,persona);
+  }
+
   public deletePersona(persona){
     return this.http.delete(this.personaUrl + "/"+persona.idpersona);
   }

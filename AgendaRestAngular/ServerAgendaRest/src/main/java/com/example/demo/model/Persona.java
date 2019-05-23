@@ -2,12 +2,9 @@ package com.example.demo.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-
-import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.stereotype.Component;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreType;
 
@@ -265,6 +262,10 @@ public class Persona implements Serializable {
 
 		return telefono;
 	}
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return "Persona [idpersona=" + idpersona + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", dni="
@@ -272,6 +273,11 @@ public class Persona implements Serializable {
 				+ ", telefonos=" + telefonos + "]";
 	}
 
+	/**
+	 * To string entity.
+	 *
+	 * @return the string
+	 */
 	public String toStringEntity() {
 		// TODO Auto-generated method stub
 		String cadena= this.getNombre() + "\n" + this.getApellido1() + "\n" + this.getDni() + "\n" + this.getFechanacimiento();

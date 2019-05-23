@@ -3,10 +3,6 @@ package com.example.demo.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The persistent class for the direccion database table.
@@ -158,6 +154,9 @@ public class Direccion implements Serializable {
 		this.provincia = provincia;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return "Direccion [iddireccion=" + iddireccion + ", codpostal=" + codpostal + ", direccion=" + direccion
