@@ -14,6 +14,7 @@
       <th>Primer apellido</th>
       <th>Segundo apellido</th>
       <th>DNI</th>
+      <th>Detalles</th>
       <th>Acciones</th>
     </tr>
     </thead>
@@ -24,8 +25,16 @@
       <td>{{persona.apellido1}}</td>
       <td>{{persona.apellido2}}</td>
       <td>{{persona.dni}}</td>
+      <details button class="btn" style="color: rgb(2, 43, 224)" ><th>Fecha de nacimiento</th>
+      <th>Direción</th>
+      <th>Teléfonos</th>
+      <tr> 
+      <td>{{persona.fechanacimiento}}</td>
+      <td>{{persona.direccions}}</td>
+      <td>{{persona.telefonos}}</td></tr></details>
       <td><button class="btn btn-danger" style="color:rgb(255, 238, 0)" (click)="deletePersona(persona)">Borrar Persona</button></td>
-      <td><button class="btn btn-warning" style="color: rgb(2, 43, 224)" (click)="detailPersona(persona)">Detalles Persona</button></td>
+       
+
     
     </tr>
     </tbody>
