@@ -18,8 +18,8 @@ export class DetalleComponent implements OnInit {
     
   }
 
-  detallesPersona(id:number): void {
-    this.personaServicio.detailPersona;
+  detailPersona(persona:Persona): void {
+    this.personaServicio.detailPersona(persona);
   };
 
 }
