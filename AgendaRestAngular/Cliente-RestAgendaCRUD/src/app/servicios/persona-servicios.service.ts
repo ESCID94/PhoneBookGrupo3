@@ -32,9 +32,6 @@ export class PersonaServiciosService {
     return this.http.delete(this.personaUrl + "/"+persona.idpersona);
   }
   public detailPersona(persona){
-    return this.http.post<Persona>(this.personaUrl,persona);
-  }
-
-
-
+    return this.http.get(this.personaUrl + "/"+persona);
+  };
 }
